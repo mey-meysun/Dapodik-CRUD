@@ -1,0 +1,212 @@
+<div class="container mt-5 shadow bg-white p-3">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <h2 class="text-center">Form Ubah Data Contact</h2>
+
+      <% if (typeof errors != 'undefined') { %>
+      <div class="alert alert-danger fw-bold" role="alert">
+        <ul>
+          <% errors.forEach(error => { %>
+          <li><%= error.msg %></li>
+          <% }) %>
+        </ul>
+      </div>
+      <% } else { %>
+      <div class="p-4">
+        <form method="post" action="/siswa?_method=put">
+          <input type="hidden" name="_id" value="<%= siswa._id %>">
+          <input type="hidden" name="nama" value="<%= siswa.nama %>">
+          <input type="hidden" name="jenisKelamin" value="<%= siswa.jenisKelamin %>">
+          <input type="hidden" name="nisn" value="<%= siswa.nisn %>">
+          <input type="hidden" name="nik" value="<%= siswa.nik %>">
+          <input type="hidden" name="nokk" value="<%= siswa.nokk %>">
+          <input type="hidden" name="ttl" value="<%= siswa.ttl %>">
+  
+          <div class="row">
+            <!-- Kolom Kiri -->
+            <div class="col-md-6">
+              <!-- Nama -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="nama">
+                  <i class="bi bi-person-circle"></i> Nama Lengkap
+                </label>
+                  <input
+                    type="text"
+                    class="form-control rounded-pill bg-light"
+                    id="nama"
+                    name="nama"
+                    value="<%= siswa.nama %>"
+                    disabled
+                  />
+              </div>
+
+              <!-- Jenis Kelamin -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="jenisKelamin">
+                  <i class="bi bi-gender-ambiguous"></i> Jenis Kelamin
+                </label>
+                  <select
+                    class="form-select form-control rounded-pill bg-light"
+                    aria-label="Default select example"
+                    name="jenisKelamin"
+                    disabled
+                  >
+                    <option selected disabled>--Pilih--</option>
+                    <option value="P" <%= siswa.jenisKelamin == 'P' ? "selected" : "" %>>Perempuan</option>
+                    <option value="L" <%= siswa.jenisKelamin == 'L' ? "selected" : "" %>>Laki-laki</option>
+                  </select>
+              </div>
+
+              <!-- NISN -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="nisn">
+                  <i class="bi bi-book"></i> NISN
+                </label>
+                  <input
+                    type="text"
+                    class="form-control rounded-pill bg-light"
+                    id="nisn"
+                    name="nisn"
+                    value="<%= siswa.nisn %>"
+                    disabled
+                  />
+              </div>
+
+              <!-- NIK -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="nik">
+                  <i class="bi bi-credit-card-2-front"></i> NIK
+                </label>
+                  <input
+                    type="text"
+                    class="form-control rounded-pill bg-light"
+                    id="nik"
+                    name="nik"
+                    value="<%= siswa.nik %>"
+                    disabled
+                  />
+              </div>
+
+              <!-- No KK -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="nokk">
+                  <i class="bi bi-file-earmark-text"></i> No. KK
+                </label>
+                  <input
+                    type="text"
+                    class="form-control rounded-pill bg-light"
+                    id="nokk"
+                    name="nokk"
+                    value="<%= siswa.nokk %>"
+                    disabled
+                  />
+              </div>
+            </div>
+
+            <!-- Kolom Kanan -->
+            <div class="col-md-6">
+              <!-- Tingkat Kelas -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="tingkat">
+                  <i class="bi bi-calendar-event"></i> Tingkat Kelas
+                </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="tingkat"
+                  >
+                    <option selected>--Pilih--</option>
+                    <option value="X" <%= siswa.tingkat == 'X' ? "selected" : "" %>>X</option>
+                    <option value="XI" <%= siswa.tingkat == 'XI' ? "selected" : "" %>>XI</option>
+                    <option value="XII" <%= siswa.tingkat == 'XII' ? "selected" : "" %>>XII</option>
+                  </select>
+              </div>
+
+              <!-- Rombel -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="rombel">
+                  <i class="bi bi-calendar-week"></i> Rombel
+                </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="rombel"
+                  >
+                    <option selected>--Pilih--</option>
+                    <option value="PPLG 1" <%= siswa.rombel == 'PPLG 1' ? "selected" : "" %>>PPLG 1</option>
+                    <option value="PPLG 2" <%= siswa.rombel == 'PPLG 2' ? "selected" : "" %>>PPLG 2</option>
+                    <option value="RPL 1" <%= siswa.rombel == 'RPL 1' ? "selected" : "" %>>RPL 1</option>
+                    <option value="RPL 2" <%= siswa.rombel == 'RPL 2' ? "selected" : "" %>>RPL 2</option>
+                  </select>
+              </div>
+
+              <!-- Tanggal Masuk -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="tgl_masuk">
+                  <i class="bi bi-calendar-check"></i> Tanggal Masuk
+                </label>
+                  <input
+                    type="date"
+                    class="form-control rounded-pill bg-light"
+                    id="tgl_masuk"
+                    name="tgl_masuk"
+                    max="2024-11-30"
+                    value="<%= new Date(siswa.tgl_masuk).toISOString().split('T')[0] %>"
+                  />
+              </div>
+
+              <!-- Terdaftar -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="terdaftar">
+                  <i class="bi bi-person-check"></i> Terdaftar
+                </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="terdaftar"
+                  >
+                    <option selected>--Pilih--</option>
+                    <option value="Siswa Baru" <%= siswa.terdaftar === 'Siswa Baru' ? 'selected' : '' %>>Siswa Baru</option>
+                    <option value="Pindahan" <%= siswa.terdaftar === 'Pindahan' ? 'selected' : '' %>>Pindahan</option>
+                  </select>
+              </div>
+
+              <!-- Tempat Lahir -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="ttl">
+                  <i class="bi bi-geo-alt"></i> Tempat Lahir
+                </label>
+                  <input
+                    type="text"
+                    class="form-control rounded-pill bg-light"
+                    id="ttl"
+                    name="ttl"
+                    value="<%= siswa.ttl %>"
+                    disabled
+                  />
+              </div>
+            </div>
+          </div>
+
+          <p class="text-muted fs-6 mt-3 mb-3">
+            <i class="bi bi-info-circle-fill text-info"></i> 
+            <span class="ms-2">
+              <strong>Catatan:</strong> Anda hanya bisa mengubah 
+              <em>Tingkat Kelas</em>, <em>Rombel</em>, 
+              <em>Tanggal Masuk</em>, dan <em>Terdaftar</em>.
+            </span>
+          </p>
+
+          <!-- Tombol Ubah dan Kembali -->
+          <div class="d-flex justify-content-between mt-4">
+            <a href="/siswa/<%= siswa.nama %>" class="btn btn-warning rounded-pill text-white">
+              <i class="bi bi-arrow-left-circle"></i> Kembali
+            </a>
+            <button type="submit" class="btn btn-primary rounded-pill">Ubah Data Siswa</button>
+          </div>
+        </form>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</div>

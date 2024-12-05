@@ -1,0 +1,32 @@
+<div class="container-fluid py-5">
+  <div class="row justify-content-center">
+    <!-- Kolom untuk konten utama -->
+    <div class="col-md-8 text-center">
+      <h1 class="display-5 text-primary mb-3">Selamat Datang, <%= user %>!</h1>
+      <p class="lead text-muted mb-4">Anda sedang berada di halaman utama aplikasi Dapodik. Kelola data dan akses fitur-fitur penting di sini.</p>
+      
+      <!-- Gambar utama -->
+      <img src="/img/dapodik-logo.png" class="img-fluid rounded shadow mb-4" alt="Gambar Ilustrasi">
+
+      <!-- Tombol navigasi -->
+      <div>
+        <a href="/siswa" class="btn btn-primary btn-lg">Kelola Data Siswa</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  const successMessage = "<%= success %>";
+  if (successMessage) {
+    Swal.fire({
+      icon: "success",
+      title: "Login Berhasil",
+      text: successMessage,
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  }
+</script>
+
+

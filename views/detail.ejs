@@ -1,0 +1,153 @@
+<div class="container mt-5 shadow bg-white p-3">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <h2 class="mb-4 text-center">Detail Siswa</h2>
+
+      <% if (!siswa) { %>
+      <div class="alert alert-danger fw-bold text-center" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i> Data siswa tidak
+        ditemukan. <br />
+        <a href="/siswa" class="alert-link text-decoration-none fw-normal"
+          ><i class="bi bi-arrow-left-circle"></i> Kembali ke daftar siswa</a
+        >.
+      </div>
+      <% } else { %>
+      <div class="p-4">
+        <div class="row">
+          <!-- Kolom Kiri -->
+          <div class="col-md-6">
+            <!-- Nama -->
+            <div class="mb-3">
+              <label class="form-label fw-bold d-block">
+                <i class="bi bi-person-circle"></i> Nama Lengkap
+              </label>
+              <div class="form-control rounded-pill bg-light">
+                <%= siswa.nama %>
+              </div>
+            </div>
+
+            <!-- Jenis Kelamin -->
+            <div class="mb-3">
+              <label class="form-label fw-bold d-block">
+                <i class="bi bi-gender-ambiguous"></i> Jenis Kelamin
+              </label>
+              <div class="form-control rounded-pill bg-light">
+                <%= siswa.jenisKelamin %>
+              </div>
+            </div>
+
+            <!-- NIK -->
+            <div class="mb-3">
+              <label class="form-label fw-bold d-block">
+                <i class="bi bi-credit-card-2-front"></i> NIK
+              </label>
+              <div class="form-control rounded-pill bg-light">
+                <%= siswa.nik %>
+              </div>
+            </div>
+
+            <!-- NISN -->
+            <div class="mb-3">
+              <label class="form-label fw-bold d-block">
+                <i class="bi bi-book"></i> NISN
+              </label>
+              <div class="form-control rounded-pill bg-light">
+                <%= siswa.nisn %>
+              </div>
+            </div>
+
+            <!-- No KK -->
+            <div class="mb-3">
+              <label class="form-label fw-bold d-block">
+                <i class="bi bi-file-earmark-text"></i> No KK
+              </label>
+              <div class="form-control rounded-pill bg-light">
+                <%= siswa.nokk %>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan -->
+          <div class="col-md-6">
+            <!-- Tingkat Kelas -->
+            <div class="mb-3">
+              <label class="form-label fw-bold d-block">
+                <i class="bi bi-calendar-event"></i> Tingkat Kelas
+              </label>
+              <div class="form-control rounded-pill bg-light">
+                <%= siswa.tingkat %>
+              </div>
+            </div>
+            <!-- Rombel -->
+            <div class="mb-3">
+              <label class="form-label fw-bold d-block">
+                <i class="bi bi-calendar-week"></i> Rombel
+              </label>
+              <div class="form-control rounded-pill bg-light">
+                <%= siswa.rombel %>
+              </div>
+            </div>
+            <!-- Tanggal Masuk -->
+            <div class="mb-3">
+              <label class="form-label fw-bold d-block">
+                <i class="bi bi-calendar-check"></i> Tanggal Masuk
+              </label>
+              <div class="form-control rounded-pill bg-light">
+                <%= new Date(siswa.tgl_masuk).toISOString().split('T')[0] %>
+              </div>
+            </div>
+            <!-- Terdaftar -->
+            <div class="mb-3">
+              <label class="form-label fw-bold d-block">
+                <i class="bi bi-person-check"></i> Terdaftar
+              </label>
+              <div class="form-control rounded-pill bg-light">
+                <%= siswa.terdaftar %>
+              </div>
+            </div>
+            <!-- Tempat Lahir -->
+            <div class="mb-3">
+              <label class="form-label fw-bold d-block">
+                <i class="bi bi-geo-alt"></i> Tempat Lahir
+              </label>
+              <div class="form-control rounded-pill bg-light">
+                <%= siswa.ttl %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tombol Ubah dan Kembali dan Hapus -->
+        <div class="d-flex justify-content-between mt-4">
+          <a
+            href="/siswa/edit/<%= siswa.nama %>"
+            class="btn btn-info rounded-pill text-white"
+          >
+            <i class="bi bi-pencil-square"></i> Ubah
+          </a>
+          <a href="/siswa" class="btn btn-warning rounded-pill text-white">
+            <i class="bi bi-arrow-left-circle"></i> Kembali
+          </a>
+          <form
+            method="POST"
+            action="/siswa?_method=delete"
+            class="d-inline"
+            id="deleteForm"
+          >
+            <input type="hidden" name="nama" value="<%= siswa.nama %>" />
+            <button
+              type="button"
+              class="btn btn-danger rounded-pill"
+              onclick="confirmDelete(event, this)"
+              data-nama="<%= siswa.nama %>"
+            >
+              <i class="bi bi-trash"></i> Hapus
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <% } %>
+    </div>
+  </div>
+</div>

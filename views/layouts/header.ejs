@@ -1,0 +1,62 @@
+<header
+  class="navbar sticky-top bg-white d-flex justify-content-between align-items-center p-0 shadow"
+  data-bs-theme="dark"
+>
+  <a
+    class="navbar-brand bg-light col-md-3 col-lg-2 me-0 px-4 p-3 d-none d-md-flex shadow"
+    href="#"
+  >
+    <img class="logo w-100" src="/img/logo-dapodik.png" alt="Logo Dapodik" />
+  </a>
+
+  <div class="ms-auto d-none d-md-flex px-4">
+    <div class="ms-auto px-3">
+      <div class="dropdown">
+        <a
+          href="#"
+          class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="bi bi-person-circle fs-5"> </i>
+          <strong class="px-2"><%- user %></strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow bg-white dropdown-menu-end">
+          <li>
+            <a
+              class="dropdown-item text-primary"
+              href="#"
+              onclick="confirmLogout(event)"
+            >
+              Log out
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center d-md-none">
+    <!-- Logo -->
+    <a
+      class="navbar-brand bg-white col-md-3 col-lg-2 me-0 px-4 p-3 shadow"
+      href="#"
+    >
+      <img class="logo w-50" src="/img/logo-dapodik.png" alt="Logo Dapodik" />
+    </a>
+
+    <!-- Mobile Menu Toggle -->
+    <button
+      class="btn d-md-none"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#sidebarMenu"
+      aria-controls="sidebarMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      style="background-color: white; border: none"
+    >
+      <i class="bi bi-list" style="font-size: 1.5rem; color: black"></i>
+    </button>
+  </div>
+</header>

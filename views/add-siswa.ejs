@@ -1,0 +1,195 @@
+<div class="container mt-5 shadow bg-white p-3">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <h2 class="text-center">Form Tambah Data Siswa</h2>
+
+      <% if (typeof errors != 'undefined') { %>
+      <div class="alert alert-danger fw-bold" role="alert">
+        <ul>
+          <% errors.forEach(error => { %>
+          <li><%= error.msg %></li>
+          <% }) %>
+        </ul>
+      </div>
+      <% }  %>
+      <div class="p-4">
+        <form method="post" action="/siswa">
+          <div class="row">
+            <!-- Kolom Kiri -->
+            <div class="col-md-6">
+              <!-- Nama -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="nama">
+                  <i class="bi bi-person-circle"></i> Nama Lengkap
+                </label>
+                  <input
+                    type="text"
+                    class="form-control rounded-pill bg-light"
+                    id="nama"
+                    name="nama"
+                    required
+                  />
+              </div>
+
+              <!-- Jenis Kelamin -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="jenisKelamin">
+                  <i class="bi bi-gender-ambiguous"></i> Jenis Kelamin
+                </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="jenisKelamin"
+                    required
+                  >
+                    <option selected disabled>--Pilih--</option>
+                    <option value="P">P</option>
+                    <option value="L">L</option>
+                  </select>
+              </div>
+
+              <!-- NISN -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="nisn">
+                  <i class="bi bi-book"></i> NISN
+                </label>
+                  <input
+                    type="text"
+                    class="form-control rounded-pill bg-light"
+                    id="nisn"
+                    name="nisn"
+                    required
+                  />
+              </div>
+
+              <!-- NIK -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="nik">
+                  <i class="bi bi-credit-card-2-front"></i> NIK
+                </label>
+                  <input
+                    type="text"
+                    class="form-control rounded-pill bg-light"
+                    id="nik"
+                    name="nik"
+                    required
+                  />
+              </div>
+
+              <!-- No KK -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="nokk">
+                  <i class="bi bi-file-earmark-text"></i> No. KK
+                </label>
+                  <input
+                    type="text"
+                    class="form-control rounded-pill bg-light"
+                    id="nokk"
+                    name="nokk"
+                    required
+                  />
+              </div>
+            </div>
+
+            <!-- Kolom Kanan -->
+            <div class="col-md-6">
+              <!-- Tingkat Kelas -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="tingkat">
+                  <i class="bi bi-calendar-event"></i> Tingkat Kelas
+                </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="tingkat"
+                    required
+                  >
+                    <option selected disabled>--Pilih--</option>
+                    <option value="X">X</option>
+                    <option value="XI">XI</option>
+                    <option value="XII">XII</option>
+                  </select>
+              </div>
+
+              <!-- Rombel -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="rombel">
+                  <i class="bi bi-calendar-week"></i> Rombel
+                </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="rombel"
+                    required
+                  >
+                    <option selected disabled>--Pilih--</option>
+                    <option value="PPLG 1">PPLG 1</option>
+                    <option value="PPLG 2">PPLG 2</option>
+                    <option value="RPL 1">RPL 1</option>
+                    <option value="RPL 2">RPL 2</option>
+                  </select>
+              </div>
+
+              <!-- Tanggal Masuk -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="tgl_masuk">
+                  <i class="bi bi-calendar-check"></i> Tanggal Masuk
+                </label>
+                  <input
+                    type="date"
+                    class="form-control rounded-pill bg-light"
+                    id="tgl_masuk"
+                    name="tgl_masuk"
+                    max="2024-11-30"
+                    required
+                  />
+              </div>
+
+              <!-- Terdaftar -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="terdaftar">
+                  <i class="bi bi-person-check"></i> Terdaftar
+                </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="terdaftar"
+                    required
+                  >
+                    <option selected disabled>--Pilih--</option>
+                    <option value="Siswa Baru">Siswa Baru</option>
+                    <option value="Pindahan">Pindahan</option>
+                  </select>
+              </div>
+
+              <!-- Tempat Lahir -->
+              <div class="mb-3">
+                <label class="form-label fw-bold d-block" for="ttl">
+                  <i class="bi bi-geo-alt"></i> Tempat Lahir
+                </label>
+                  <input
+                    type="text"
+                    class="form-control rounded-pill bg-light"
+                    id="ttl"
+                    name="ttl"
+                    required
+                  />
+              </div>
+            </div>
+          </div>
+
+          <!-- Tombol Tambah dan Kembali -->
+          <div class="d-flex justify-content-between mt-4">
+            <a href="/siswa/" class="btn btn-warning rounded-pill text-white">
+              <i class="bi bi-arrow-left-circle"></i> Kembali
+            </a>
+            <button type="submit" class="btn btn-primary rounded-pill">
+              Tambah Data Siswa
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

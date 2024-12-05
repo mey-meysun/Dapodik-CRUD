@@ -1,0 +1,91 @@
+<div
+  class="d-none flex-column d-md-flex flex-shrink-0 p-3 mt-2 bg-white shadow"
+  style="min-height: 100%; max-height: max-content"
+>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a class="nav-link d-flex align-items-center gap-2" href="/">
+        <i class="bi bi-house"></i>
+        Home
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link d-flex align-items-center gap-2" href="/siswa">
+        <i class="bi bi-people-fill"></i>
+        Data Siswa
+      </a>
+    </li>
+    <hr class="my-3" />
+    <li class="nav-item">
+      <a class="nav-link d-flex align-items-center gap-2" href="/about">
+        <i class="bi bi-info-circle"></i>
+        About
+      </a>
+    </li>
+  </ul>
+  <hr />
+</div>
+
+<div
+  class="offcanvas offcanvas-start d-md-flex flex-column flex-shrink-0 p-3 bg-white shadow"
+  style="min-height: 100%; max-width: 250px"
+  id="sidebarMenu"
+  tabindex="-1"
+  aria-labelledby="sidebarMenuLabel"
+>
+  <!-- Sidebar Menu -->
+  <ul class="nav nav-pills flex-column mb-auto">
+    <!-- Home -->
+    <li class="nav-item">
+      <a class="nav-link d-flex align-items-center gap-2" href="/">
+        <i class="bi bi-house"></i>
+        Home
+      </a>
+    </li>
+
+    <!-- Data Siswa -->
+    <li class="nav-item">
+      <a class="nav-link d-flex align-items-center gap-2" href="/siswa">
+        <i class="bi bi-people-fill"></i>
+        Data Siswa
+      </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="my-3" />
+
+    <!-- About -->
+    <li class="nav-item">
+      <a class="nav-link d-flex align-items-center gap-2" href="/about">
+        <i class="bi bi-info-circle"></i>
+        About
+      </a>
+    </li>
+  </ul>
+  <hr />
+  <!-- Profile Dropdown -->
+  <div class="px-3 mb-1">
+    <div class="dropdown">
+      <a
+        href="#"
+        class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <i class="bi bi-person-circle fs-5"> </i>
+        <strong class="px-2"><%- user %></strong>
+      </a>
+      <ul class="dropdown-menu text-small shadow bg-white">
+        <li>
+          <a
+            class="dropdown-item text-primary"
+            href="#"
+            onclick="confirmLogout(event)"
+          >
+            Log out
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
